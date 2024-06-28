@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../../../node_modules/.prisma/client/orders"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum OrderStatus {
+  PENDING
+  PAYED
+  CANCELLED
+}
+
+model Order {
+  createdAt DateTime    @default(now())
+  id        Int         @id @default(autoincrement())
+  price     Int
+  clientId  Int
+  status    OrderStatus
+}
