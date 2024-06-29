@@ -8,3 +8,7 @@ Content-Type: application/json
   "clientId": 1,
   "price": 100
 }
+
+###
+
+GET http://localhost:3001/payments

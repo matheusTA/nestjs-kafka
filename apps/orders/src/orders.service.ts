@@ -29,4 +29,11 @@ export class OrdersService {
 
     return order;
   }
+
+  complete(orderId: number, status: OrderStatus) {
+    return this.prismaService.order.update({
+      where: { id: orderId },
+      data: { status },
+    });
+  }
 }
